@@ -17,6 +17,8 @@ jobs:
         run: python manage.py test
   find-bad-commit:
     runs-on: ubuntu-latest
+    needs: tests
+    if: failure()
     steps:
       - uses: actions/checkout@v3
         with:
